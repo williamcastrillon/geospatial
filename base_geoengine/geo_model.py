@@ -65,7 +65,7 @@ class GeoModel(models.BaseModel):
         res = super(GeoModel, self)._auto_init(cursor, context)
         column_data = self._select_column_data(cursor)
         for kol in geo_columns:
-            if not isinstance(geo_columns[kol], fields.function):
+            if not isinstance(geo_columns[kol], fields.function) and self._auto:
                 fct = geo_columns[kol].create_geo_column
                 if kol in column_data:
                     fct = geo_columns[kol].update_geo_column
