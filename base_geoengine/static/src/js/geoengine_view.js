@@ -490,7 +490,7 @@ openerp.base_geoengine = function(openerp) {
             _.each(data.geoengine_layers.actives, function(item) {
                 self.geometry_columns[item.geo_field_id[1]] = true;
             });
-            this.$el.html(QWeb.render("GeoengineView", {"fields_view": this.fields_view, 'elem_id': this.elem_id}));
+            this.$el.html(QWeb.render("GeoengineView", {"fields_view": this.fields_view, 'elem_id': this.elem_id, 'widget': this}));
         },
 
         render_map: function() {
